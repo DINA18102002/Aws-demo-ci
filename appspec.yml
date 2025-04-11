@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+
+files:
+  - source: HelloWorld.java
+    destination: /home/ec2-user/app
+  - source: HelloWorld.class
+    destination: /home/ec2-user/app
+
+hooks:
+  AfterInstall:
+    - location: scripts/run_java.sh
+      timeout: 180
+      runas: ec2-user
